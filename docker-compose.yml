@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  python-ai-service:
+    build:
+      context: .
+      dockerfile: services/ai/Dockerfile
+    container_name: satquery-python-ai
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage:/app/storage
+      - ./datasets:/app/datasets
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - DEBUG=true
+    restart: unless-stopped
+
+  node-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: satquery-node-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./storage:/app/storage
+    environment:
+      - PORT=5000
+      - PYTHON_SERVICE_URL=http://python-ai-service:8000
+      - STORAGE_DIR=/app/storage
+    depends_on:
+      - python-ai-service
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: satquery-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NEXT_PUBLIC_WS_URL=ws://localhost:5000/ws/telemetry
+    depends_on:
+      - node-backend
+    restart: unless-stopped
