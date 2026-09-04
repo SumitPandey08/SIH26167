@@ -27,7 +27,24 @@ class RasterPreprocessor:
         """
         path = Path(filepath)
         if not path.exists():
-            raise FileNotFoundError(f"Raster file not found: {filepath}")
+            # Check alternative locations
+            repo_root = Path(__file__).resolve().parents[4]
+            alt_candidates = [
+                Path(filepath.replace("/backend/storage/", "/storage/")),
+                repo_root / "storage" / "uploads" / Path(filepath).name,
+                repo_root / filepath.lstrip("/"),
+                Path.cwd() / filepath,
+                Path.cwd().parent / filepath,
+            ]
+            found = False
+            for alt in alt_candidates:
+                if alt.exists():
+                    path = alt
+                    filepath = str(alt.resolve())
+                    found = True
+                    break
+            if not found:
+                raise FileNotFoundError(f"Raster file not found: {filepath}")
 
         # Attempt high-fidelity geospatial inspection with rasterio
         try:
@@ -103,7 +120,7 @@ class RasterPreprocessor:
         # Attempt loading via rasterio
         try:
             import rasterio
-            with rasterio.open(filepath) as src:
+            with rasterio.open(meta.filepath) as src:
                 arr = src.read()  # Shape (C, H, W)
                 arr = arr.astype(np.float32)
                 # Handle NoData if specified
@@ -116,7 +133,7 @@ class RasterPreprocessor:
 
         # Fallback using PIL
         from PIL import Image
-        with Image.open(filepath) as img:
+        with Image.open(meta.filepath) as img:
             img = img.convert("RGB")
             np_arr = np.array(img, dtype=np.float32)  # Shape (H, W, C)
             arr = np.transpose(np_arr, (2, 0, 1))  # Convert to (C, H, W)

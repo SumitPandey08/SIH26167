@@ -11,6 +11,7 @@ frontend/out/
 
 # Node Backend Build
 backend/dist/
+backend/storage
 
 # Logs & Temporary Files
 *.log
@@ -22,3 +23,17 @@ yarn-error.log*
 # Large Raw Datasets (Keep real benchmark samples, ignore multi-GB raw dumps)
 datasets/raw/*
 !datasets/raw/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/cache/*
+!data/cache/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Storage Generated Artifacts
+storage/masks/*
+!storage/masks/.gitkeep
+storage/reports/*
+!storage/reports/.gitkeep
+storage/checkpoints/*
+!storage/checkpoints/.gitkeep

@@ -62,6 +62,9 @@ router.post('/investigations', InvestigationController.create);
 router.get('/investigations/:id', InvestigationController.getById);
 router.post('/investigations/:id/upload', upload.single('image'), InvestigationController.uploadImage);
 router.post('/investigations/:id/query', InvestigationController.askQuery);
+router.post('/investigations/:id/execute', InvestigationController.askQuery);
+router.get('/investigations/:id/trace', InvestigationController.getTrace);
+router.get('/investigations/:id/evidence', InvestigationController.getEvidence);
 router.get('/investigations/:id/report', InvestigationController.getReport);
 
 export default router;

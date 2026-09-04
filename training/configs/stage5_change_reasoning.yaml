@@ -1,0 +1,17 @@
+stage_name: "stage5_change_reasoning"
+stage_index: 5
+description: "Bi-temporal sequence modeling, building growth tracking, and change detection VQA."
+target_datasets:
+  - name: "LEVIR-CD"
+    task: "temporal_change"
+  - name: "CDVQA"
+    task: "change_vqa"
+  - name: "BRIGHT"
+    task: "temporal_change"
+
+hyperparameters:
+  epochs: 4
+  batch_size: 4
+  learning_rate: 8.0e-5
+  image_size: 384
+  dual_image_fusion: "cross_attention_difference"

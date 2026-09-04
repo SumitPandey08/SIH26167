@@ -1,0 +1,26 @@
+# SatQuery AI — Full Production Dataset Configuration
+# Covers all 13 Earth Observation & Vision-Language Benchmarks
+
+environment: "production"
+max_samples_per_split:
+  train: null  # Uncapped (full stream)
+  val: 5000
+  test: 5000
+
+datasets:
+  tier_1:
+    - "BigEarthNet-v2"
+    - "VRSBench"
+    - "RSVQA"
+    - "LEVIR-CD"
+    - "LEVIR-CC"
+    - "CDVQA"
+  tier_2:
+    - "SEN12MS"
+    - "BRIGHT"
+    - "UrbanSARFloods"
+  tier_3:
+    - "FloodNet"
+    - "DIOR-RSVG"
+    - "DOTA"
+    - "FAIR1M"

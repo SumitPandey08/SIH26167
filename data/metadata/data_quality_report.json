@@ -1,0 +1,12 @@
+{
+  "dataset": "VRSBench",
+  "validated_at": "2026-09-04T12:58:31.601579+00:00",
+  "total_samples": 5,
+  "passed_samples": 5,
+  "quality_score_percent": 100.0,
+  "errors": 0,
+  "warnings": 0,
+  "duplicates": 0,
+  "status": "PASS",
+  "findings": []
+}

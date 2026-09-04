@@ -4,7 +4,8 @@
 **Department:** Department of Space / ISRO  
 **Theme:** Space Technology | **Category:** Software  
 
-> **Session Anchor:** For a comprehensive, persistent state document that guarantees zero agent confusion after a machine reboot, see [docs/PROJECT_HANDOFF.md](docs/PROJECT_HANDOFF.md).
+> **🤖 AI Agents & LLM Pair Programmers (Antigravity, Cursor, Claude, Windsurf, Copilot):**  
+> For complete codebase architecture, zero-hallucination guardrails, execution commands, and the prioritized **"What to Do Next"** backlog, read **[AGENTS.md](AGENTS.md)** and **[docs/PROJECT_HANDOFF.md](docs/PROJECT_HANDOFF.md)**.
 
 ---
 
@@ -98,3 +99,33 @@ Real satellite imagery is stored in `datasets/real/` and mounted in `storage/upl
 All libraries and specialist models integrated into SatQuery AI have been audited for academic, competition, and research compliance in [THIRD_PARTY.md](docs/THIRD_PARTY.md).
 - Source code: Apache-2.0
 - Model weights: MIT / Apache-2.0 / Open Academic Research
+
+---
+
+## 🛠️ 7. CLI & Testing
+
+SatQuery provides a unified dataset and training CLI via `./scripts/satquery`:
+```bash
+./scripts/satquery dataset list     # List 13 benchmark datasets
+./scripts/satquery eval             # Run scientific benchmark evaluation
+```
+
+Run test suite:
+```bash
+PYTHONPATH=. .venv/bin/python tests/test_all_scenarios.py     # 6 End-to-end ISRO scenarios
+PYTHONPATH=. .venv/bin/python tests/test_dataset_hub.py       # Dataset adapters & split manager
+PYTHONPATH=. .venv/bin/python tests/test_training_adaptation.py # VLM collators & trainers
+npm --prefix backend run build                               # Backend TypeScript check
+npm --prefix frontend run build                              # Frontend Next.js build
+```
+
+---
+
+## 🧭 8. What to Do Next (Roadmap)
+
+See **[AGENTS.md](AGENTS.md)** for detailed implementation instructions for each item:
+1. **High-Res GeoTIFF / COG Streaming:** Ingest 12-band Sentinel-2 L2A rasters and compute physical surface reflectances using windowed `rasterio`.
+2. **LoRA Fine-Tuning Execution:** Run the 6-stage VLM adaptation curriculum with `satquery train` on GPU.
+3. **ISRO Indian Sensor Integration:** Ingest Cartosat-3 high-resolution panchromatic & multispectral imagery and RISAT/NISAR L-band & S-band polarimetric SAR data.
+4. **Production Containerization:** Add `docker-compose.yml` for unified single-command deployment.
+5. **MapLibre Multi-Temporal Slider:** Enhance `/map` with multi-date temporal scrubber and polygon drawing queries.

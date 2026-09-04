@@ -1,0 +1,346 @@
+{
+  "build_metadata": {
+    "created_at": "2026-09-04T10:16:34.514149+00:00",
+    "git_commit": "eed4fb3ca155b4f8af4ff94dfa349124f7ad16d2",
+    "python_version": "3.12.3",
+    "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+    "system": "Linux"
+  },
+  "registry_summary": {
+    "total_datasets": 13,
+    "tier_1_count": 6,
+    "tier_2_count": 3,
+    "tier_3_count": 4
+  },
+  "datasets": [
+    {
+      "dataset": "BigEarthNet-v2",
+      "version": "2.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CDLA-Permissive-1.0",
+      "source": "Technische Universit\u00e4t Berlin & European Space Agency (ESA)",
+      "modalities": [
+        "optical",
+        "sar",
+        "multispectral"
+      ],
+      "sensors": [
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "tasks": [
+        "multimodal_representation",
+        "optical_sar",
+        "land_cover",
+        "scene_classification"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "CDVQA",
+      "version": "1.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Wuhan University / RSICD Consortium",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical",
+        "Gaofen-2"
+      ],
+      "tasks": [
+        "change_vqa",
+        "temporal_change"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "LEVIR-CC",
+      "version": "1.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Beihang University",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical"
+      ],
+      "tasks": [
+        "change_captioning"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "LEVIR-CD",
+      "version": "1.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Beihang University (LEVIR Lab)",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical"
+      ],
+      "tasks": [
+        "temporal_change"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "RSVQA",
+      "version": "1.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-NC-SA-4.0",
+      "source": "University of Geneva (Sylvain Lobry et al.)",
+      "modalities": [
+        "optical",
+        "multispectral"
+      ],
+      "sensors": [
+        "Sentinel-2",
+        "Airborne-Optical"
+      ],
+      "tasks": [
+        "vqa"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "VRSBench",
+      "version": "1.0.0",
+      "tier": 1,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Wuhan University / RSICD Consortium",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical",
+        "Gaofen-2"
+      ],
+      "tasks": [
+        "captioning",
+        "visual_grounding",
+        "vqa",
+        "scene_description"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "BRIGHT",
+      "version": "1.0.0",
+      "tier": 2,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Disaster Response Consortium / Maxar Open Data",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical",
+        "PlanetScope"
+      ],
+      "tasks": [
+        "temporal_change",
+        "scene_description",
+        "object_detection"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "SEN12MS",
+      "version": "1.0.0",
+      "tier": 2,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Technical University of Munich (TUM - Michael Schmitt et al.)",
+      "modalities": [
+        "optical",
+        "sar",
+        "multispectral"
+      ],
+      "sensors": [
+        "Sentinel-1",
+        "Sentinel-2"
+      ],
+      "tasks": [
+        "optical_sar",
+        "land_cover",
+        "multimodal_representation"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "UrbanSARFloods",
+      "version": "1.0.0",
+      "tier": 2,
+      "status": "REAL + VERIFIED",
+      "license": "NASA Open Data / Public Domain",
+      "source": "NASA / JPL Earth Observation Data",
+      "modalities": [
+        "sar"
+      ],
+      "sensors": [
+        "Sentinel-1"
+      ],
+      "tasks": [
+        "temporal_change",
+        "land_cover",
+        "optical_sar"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "DIOR-RSVG",
+      "version": "1.0.0",
+      "tier": 3,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-4.0",
+      "source": "Northwestern Polytechnical University (NWPU)",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical",
+        "Gaofen-1"
+      ],
+      "tasks": [
+        "visual_grounding",
+        "object_detection"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "DOTA",
+      "version": "2.0.0",
+      "tier": 3,
+      "status": "REAL + VERIFIED",
+      "license": "DOTA Dataset License (Academic)",
+      "source": "Wuhan University (CAPS Lab)",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical",
+        "Gaofen-2"
+      ],
+      "tasks": [
+        "object_detection"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "FAIR1M",
+      "version": "2.0.0",
+      "tier": 3,
+      "status": "REAL + VERIFIED",
+      "license": "FAIR1M Academic License",
+      "source": "Chinese Academy of Sciences (Aerospace Information Research Institute)",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Gaofen-2",
+        "Airborne-Optical"
+      ],
+      "tasks": [
+        "object_detection"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    },
+    {
+      "dataset": "FloodNet",
+      "version": "1.0.0",
+      "tier": 3,
+      "status": "REAL + VERIFIED",
+      "license": "CC-BY-NC-4.0",
+      "source": "University of Maryland & EarthVision Workshop",
+      "modalities": [
+        "optical"
+      ],
+      "sensors": [
+        "Airborne-Optical"
+      ],
+      "tasks": [
+        "vqa",
+        "land_cover",
+        "object_detection"
+      ],
+      "splits": [
+        "train",
+        "val",
+        "test"
+      ],
+      "streaming_support": true
+    }
+  ]
+}

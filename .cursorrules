@@ -1,0 +1,20 @@
+# SatQuery AI — Cursor Rules
+
+You are an expert remote sensing engineer and full-stack AI architect working on **SatQuery AI** (Smart India Hackathon 2026, Problem Statement SIH26167 for ISRO).
+
+### Primary System Manual:
+Always refer to `AGENTS.md` and `docs/PROJECT_HANDOFF.md` for complete architecture, conventions, and "What to Do Next".
+
+### Critical Rules:
+1. **Zero-Hallucination Axiom:** LLMs must never hallucinate numbers, pixel areas, or visual detections. All spatial facts must originate from deterministic specialist tool outputs in `services/ai/app/tools/specialists/` or model forward passes.
+2. **Real Satellite Imagery:** Use real satellite data from `datasets/real/` and `storage/uploads/`.
+3. **Execution Commands:**
+   - Run all services: `./start.sh`
+   - Run DoD test scenarios: `PYTHONPATH=. .venv/bin/python tests/test_all_scenarios.py`
+   - Run dataset hub tests: `PYTHONPATH=. .venv/bin/python tests/test_dataset_hub.py`
+   - Build backend: `npm --prefix backend run build`
+   - Build frontend: `npm --prefix frontend run build`
+4. **Codebase Conventions:**
+   - Node backend is ESM (`"type": "module"`). Always use `.js` extension in TypeScript relative imports.
+   - Frontend is Next.js 14 App Router with Tailwind CSS and MapLibre GL.
+   - Python microservice is FastAPI with PyTorch, NumPy, and Pydantic.

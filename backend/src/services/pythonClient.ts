@@ -57,6 +57,7 @@ export class PythonClient {
     query: string;
     images: Array<{ filepath: string; role: string; metadata?: RasterMetadata }>;
     parameters?: Record<string, unknown>;
+    requested_mode?: string;
   }): Promise<EvidenceGraph> {
     try {
       const res = await fetch(`${this.baseUrl}/api/v1/analyze`, {

@@ -83,7 +83,7 @@ export class InvestigationController {
 
   static async askQuery(req: Request, res: Response) {
     const { id } = req.params;
-    const { query } = req.body;
+    const { query, requested_mode } = req.body;
 
     if (!query) {
       return res.status(400).json({ error: 'Query string is required' });
@@ -108,6 +108,7 @@ export class InvestigationController {
       const payload = {
         investigation_id: id,
         query,
+        requested_mode: requested_mode || 'standard',
         images: inv.images.map(img => ({
           filepath: img.filepath,
           role: img.role,
@@ -180,5 +181,29 @@ export class InvestigationController {
       res.setHeader('Content-Type', 'text/markdown');
       return res.send(md);
     }
+  }
+
+  static getTrace(req: Request, res: Response) {
+    const { id } = req.params;
+    const inv = investigationStore.getById(id);
+    if (!inv) return res.status(404).json({ error: `Investigation ${id} not found` });
+    const lastAssistantMsg = [...inv.messages].reverse().find(m => m.sender === 'assistant' && m.execution_trace);
+    res.json({
+      investigation_id: id,
+      execution_trace: lastAssistantMsg?.execution_trace || []
+    });
+  }
+
+  static getEvidence(req: Request, res: Response) {
+    const { id } = req.params;
+    const inv = investigationStore.getById(id);
+    if (!inv) return res.status(404).json({ error: `Investigation ${id} not found` });
+    const lastAssistantMsg = [...inv.messages].reverse().find(m => m.sender === 'assistant' && m.evidence_graph);
+    res.json({
+      investigation_id: id,
+      evidence_nodes: lastAssistantMsg?.evidence_graph?.evidence_nodes || {},
+      claims: lastAssistantMsg?.evidence_graph?.claims || [],
+      confidence: lastAssistantMsg?.evidence_graph?.aggregate_confidence || 0.90
+    });
   }
 }

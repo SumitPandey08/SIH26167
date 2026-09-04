@@ -1,0 +1,15 @@
+stage_name: "stage4_grounding"
+stage_index: 4
+description: "Referring expression visual grounding and bounding-box tokenization (<box>[ymin, xmin, ymax, xmax]</box>)."
+target_datasets:
+  - name: "VRSBench"
+    task: "visual_grounding"
+  - name: "DIOR-RSVG"
+    task: "visual_grounding"
+
+hyperparameters:
+  epochs: 4
+  batch_size: 4
+  learning_rate: 8.0e-5
+  image_size: 448
+  bbox_token_format: "xml_normalized"

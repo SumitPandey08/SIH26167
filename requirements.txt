@@ -1,0 +1,13 @@
+# SatQuery AI — Core Python Dependencies (SIH26167)
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.0
+numpy>=1.26.0
+scipy>=1.12.0
+Pillow>=10.2.0
+torch>=2.2.0
+torchvision>=0.17.0
+PyYAML>=6.0.1
+click>=8.1.0

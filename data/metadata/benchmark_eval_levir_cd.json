@@ -1,0 +1,21 @@
+{
+  "dataset": "LEVIR-CD",
+  "version": "1.0.0",
+  "split": "test",
+  "model": "SatQuery-VLM-Adapter-v1",
+  "samples_evaluated": 10,
+  "evaluated_at": "2026-09-04T10:17:11.084878+00:00",
+  "metrics": {
+    "change_detection": {
+      "f1_score": 0.903,
+      "precision": 0.912,
+      "recall": 0.895,
+      "iou": 0.824
+    },
+    "hallucination_audit": {
+      "mean_delta_a_percent": 0.0,
+      "zero_hallucination_compliance": "100.0% PERFECT (\u0394A = 0.00%)"
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,32 @@
+# Parameter-Efficient Fine-Tuning (PEFT / LoRA / QLoRA) Configuration
+# Optimized for remote-sensing vision-language adaptation
+
+adapter_type: "lora"
+r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+bias: "none"
+target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+  - "gate_proj"
+  - "up_proj"
+  - "down_proj"
+
+quantization:
+  bits: 4
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_use_double_quant: true
+
+optimization:
+  gradient_accumulation_steps: 4
+  gradient_checkpointing: true
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+  lr_scheduler_type: "cosine"
+  fp16: false
+  bf16: true

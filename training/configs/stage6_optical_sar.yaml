@@ -1,0 +1,18 @@
+stage_name: "stage6_optical_sar"
+stage_index: 6
+description: "Optical-SAR cross-modal fusion, radar backscatter analysis, and cloud penetration."
+target_datasets:
+  - name: "BigEarthNet-v2"
+    task: "optical_sar"
+  - name: "SEN12MS"
+    task: "optical_sar"
+  - name: "UrbanSARFloods"
+    task: "optical_sar"
+
+hyperparameters:
+  epochs: 3
+  batch_size: 4
+  learning_rate: 5.0e-5
+  image_size: 224
+  optical_channels: 3
+  sar_polarizations: ["VV", "VH"]

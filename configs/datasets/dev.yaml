@@ -1,0 +1,64 @@
+# SatQuery AI — Lightweight Development Dataset Configuration
+# Capped for immediate local iteration, test execution, and CI/CD validation
+
+environment: "development"
+max_samples_per_split:
+  train: 20
+  val: 5
+  test: 5
+
+datasets:
+  tier_1:
+    - name: "BigEarthNet-v2"
+      enabled: true
+      tasks: ["optical_sar", "land_cover"]
+      streaming: true
+    - name: "VRSBench"
+      enabled: true
+      tasks: ["captioning", "visual_grounding", "vqa"]
+      streaming: true
+    - name: "RSVQA"
+      enabled: true
+      tasks: ["vqa"]
+      streaming: true
+    - name: "LEVIR-CD"
+      enabled: true
+      tasks: ["temporal_change"]
+      streaming: true
+    - name: "LEVIR-CC"
+      enabled: true
+      tasks: ["change_captioning"]
+      streaming: true
+    - name: "CDVQA"
+      enabled: true
+      tasks: ["change_vqa"]
+      streaming: true
+
+  tier_2:
+    - name: "SEN12MS"
+      enabled: true
+      tasks: ["optical_sar"]
+    - name: "BRIGHT"
+      enabled: true
+      tasks: ["temporal_change"]
+    - name: "UrbanSARFloods"
+      enabled: true
+      tasks: ["temporal_change", "optical_sar"]
+
+  tier_3:
+    - name: "FloodNet"
+      enabled: true
+      tasks: ["vqa"]
+    - name: "DIOR-RSVG"
+      enabled: true
+      tasks: ["visual_grounding"]
+    - name: "DOTA"
+      enabled: true
+      tasks: ["object_detection"]
+    - name: "FAIR1M"
+      enabled: true
+      tasks: ["object_detection"]
+
+cache:
+  directory: "data/cache"
+  auto_cleanup_days: 7

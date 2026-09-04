@@ -1,0 +1,16 @@
+stage_name: "stage2_captioning"
+stage_index: 2
+description: "Dense Earth observation scene captioning and land cover characteristic description."
+target_datasets:
+  - name: "VRSBench"
+    task: "captioning"
+  - name: "LEVIR-CC"
+    task: "change_captioning"
+
+hyperparameters:
+  epochs: 3
+  batch_size: 8
+  learning_rate: 1.0e-4
+  image_size: 384
+  freeze_vision_backbone: false
+  max_text_tokens: 256

@@ -1,0 +1,39 @@
+# SatQuery AI — Tier 1 Priority Benchmark Configuration
+# Focuses on VLM adaptation, grounding, bi-temporal change, and optical-SAR fusion
+
+environment: "benchmark_evaluation"
+max_samples_per_split:
+  train: 1000
+  val: 200
+  test: 200
+
+datasets:
+  - name: "BigEarthNet-v2"
+    version: "2.0.0"
+    role: "multimodal_pretraining"
+    streaming: true
+
+  - name: "VRSBench"
+    version: "1.0.0"
+    role: "vlm_instruction_tuning"
+    streaming: true
+
+  - name: "RSVQA"
+    version: "1.0.0"
+    role: "spatial_vqa"
+    streaming: true
+
+  - name: "LEVIR-CD"
+    version: "1.0.0"
+    role: "change_detection"
+    streaming: true
+
+  - name: "LEVIR-CC"
+    version: "1.0.0"
+    role: "change_captioning"
+    streaming: true
+
+  - name: "CDVQA"
+    version: "1.0.0"
+    role: "temporal_vqa"
+    streaming: true

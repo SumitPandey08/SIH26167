@@ -1,0 +1,16 @@
+stage_name: "stage1_alignment"
+stage_index: 1
+description: "Remote sensing vision-language contrastive alignment across global satellite scenes."
+target_datasets:
+  - name: "BigEarthNet-v2"
+    task: "multimodal_representation"
+  - name: "SEN12MS"
+    task: "land_cover"
+
+hyperparameters:
+  epochs: 2
+  batch_size: 16
+  learning_rate: 2.0e-4
+  image_size: 224
+  freeze_vision_backbone: true
+  unfreeze_layers: ["projector", "lora"]
